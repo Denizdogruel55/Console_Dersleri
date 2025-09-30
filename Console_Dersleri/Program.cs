@@ -291,14 +291,7 @@ namespace Console_Dersleri
 
             //}
 
-            int sayi = 1456;
-
-            int birler = sayi / 10;
-            int onlarbasamagi = (sayi % 100) - birler;
-            int yuzler = (sayi % 1000) - onlarbasamagi;
-            int sonuc = birler + onlarbasamagi + yuzler;
-            Console.WriteLine(sonuc);
-
+           
 
             Console.ReadLine();
         }
