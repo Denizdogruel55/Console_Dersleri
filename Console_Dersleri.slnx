@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="Console_Dersleri/Console_Dersleri.csproj" />
   <Project Path="Metotlar/Metotlar.csproj" />
+  <Project Path="Sql/Sql.csproj" />
+  <Project Path="Sınıflar/Sınıflar.csproj" />
 </Solution>
