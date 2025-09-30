@@ -199,24 +199,81 @@ namespace Console_Dersleri
 
 
             //}
-            int s1, s2, s3;
-            double ort;
-            Console.Write("1.Sınavı Giriniz:");
-            s1=Convert.ToInt32(Console.ReadLine());
-            Console.Write("2.Sınavı Giriniz:");
-            s2 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("3.Sınavı Giriniz:");
-            s3 = Convert.ToInt32(Console.ReadLine());
-            ort = (s1 + s2 + s3) / 3;
-            switch (ort)
+            //int s1, s2, s3;
+            //double ort;
+            //Console.Write("1.Sınavı Giriniz:");
+            //s1=Convert.ToInt32(Console.ReadLine());
+            //Console.Write("2.Sınavı Giriniz:");
+            //s2 = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("3.Sınavı Giriniz:");
+            //s3 = Convert.ToInt32(Console.ReadLine());
+            //ort = (s1 + s2 + s3) / 3;
+            //switch (ort)
+            //{
+            //    case 50:Console.WriteLine("vasat"); break;
+            //    case 75:Console.WriteLine("orta");break;
+            //    case 100:Console.WriteLine("Başarılı");break;
+            //    default: Console.WriteLine("Hatalı Giriş");break;
+            //}
+            //for (int i = 1; i <= 10; i++) {
+            //    Console.WriteLine("Merhaba Dünya"+i);
+
+            //}
+            //for (int i = 1; i <= 5; i++) { 
+            //Console.WriteLine(i);
+
+            //}
+            //for (int i = 1; i <= 20; i++) { 
+            //Console.WriteLine(i);
+
+            //}21
+            //for(int i = 0; i < 21; i += 3)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //for (int i = 1; i < 24; i++) { 
+
+            //Console.WriteLine(i);
+
+            ////}
+            //for (int i = 1; i <= 21; i++) {
+
+            //    if (i % 2 == 0) {
+
+            //        Console.WriteLine(i);
+
+            //    }
+
+            //}
+            //for (int i=0; i <= 50; i++) {
+            //    if (i % 5 == 0 && i % 7 == 0) {
+            //        Console.WriteLine(i);
+
+            //    }
+            //}
+            //int sonuc = 1;
+            //for (int i = 1; i <= 5; i++) {
+
+            //    sonuc = sonuc * i;
+
+            //}
+            //Console.WriteLine(sonuc);100
+            //int toplam = 1;
+            //for(int i = 1; i <= 100; i++)
+            //{
+            //    if (i % 7 == 0)
+            //    {
+            //        toplam = toplam + i;
+
+            //    }
+            //}Console.WriteLine(toplam);
+            int i = 1;
+            while (i <= 10)
             {
-                case 50:Console.WriteLine("vasat"); break;
-                case 75:Console.WriteLine("orta");break;
-                case 100:Console.WriteLine("Başarılı");break;
-                default: Console.WriteLine("Hatalı Giriş");break;
+                Console.WriteLine(i+"Merhaba");
+                i++;
             }
-            
-            Console.ReadLine();
+                Console.ReadLine();
         }
     }
 }
