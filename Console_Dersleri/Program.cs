@@ -267,13 +267,40 @@ namespace Console_Dersleri
 
             //    }
             //}Console.WriteLine(toplam);
-            int i = 1;
-            while (i <= 10)
-            {
-                Console.WriteLine(i+"Merhaba");
-                i++;
-            }
-                Console.ReadLine();
+            //int i = 1;
+            //while (i <= 10)
+            //{
+            //    Console.WriteLine(i+"Merhaba");
+            //    i++;
+            //}
+            //string[] sehirler = { "Adana", "Londra", "Kiev", "Milano", "Paris" };
+            //Console.WriteLine(sehirler[3]);
+
+            //int[] sinavnotlari = { 48, 98, 100, 75 };
+            //Console.WriteLine(sinavnotlari[3]);
+            //string[] sehirler = { "istanbul", "adana", "mardin", "kutahya", "Konya" };
+            //foreach(string s in sehirler) { Console.WriteLine(s); }
+            int[] sayilar = { 18, 95, 456, 85, 79, 94, 32 };
+            //foreach (int i in sayilar) {
+
+            //    if (i % 3 == 0) { 
+
+            //    Console.WriteLine(i);
+
+            //    }
+
+            //}
+
+            int sayi = 1456;
+
+            int birler = sayi / 10;
+            int onlarbasamagi = (sayi % 100) - birler;
+            int yuzler = (sayi % 1000) - onlarbasamagi;
+            int sonuc = birler + onlarbasamagi + yuzler;
+            Console.WriteLine(sonuc);
+
+
+            Console.ReadLine();
         }
     }
 }
