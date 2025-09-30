@@ -98,6 +98,124 @@ namespace Console_Dersleri
             //Console.Write("Karakter Giriniz: ");
             //karakter = Convert.ToChar(Console.ReadLine());
             //Console.Write(karakter);
+            //string sifre;
+            //Console.Write("Sifreyi Giriniz: ");
+            //sifre = Console.ReadLine();
+            //if (sifre == "1234")
+            //{
+            //    Console.WriteLine("Sifre doğru sisteme Hoşgeldiniz...");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("sifre girişi Hatalı");
+            //}
+            //   double sinav1, sinav2, ortalama;
+            //   Console.Write("Sinav1: ");
+            //sinav1=Convert.ToDouble(Console.ReadLine());
+            //   Console.Write("Sinav2: ");
+            //   sinav2=Convert.ToDouble(Console.ReadLine());
+            //   ortalama=(sinav1+sinav2)/2;
+            //   if (ortalama > 50) {
+
+            //       Console.Write("Geçti");
+
+            //   }
+            //   else
+            //   {
+            //       Console.Write("Kaldı");
+            //   }
+            //string sifre, kullaniciadi;
+            //Console.Write("Kullaniciadi Giriniz: ");
+            //kullaniciadi = Console.ReadLine();
+            //Console.Write("Sifre Giriniz: ");
+            //sifre = Console.ReadLine();
+            //if(kullaniciadi=="ah123"&& sifre == "a123")
+            //{
+            //    Console.Write("Hoşgeldiniz");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("hatali Sifre");
+            //}
+            //string anahtar;
+            //Console.Write("Anahtar kelimeyi Giriniz: ");
+            //anahtar = Console.ReadLine();
+            //if(anahtar !="adana"||anahtar!="ankara" ||anahtar!="bursa")
+            //{
+            //    Console.WriteLine("işlem başarılı");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Giriş Başarısız");
+            //}
+            //int sonuc = 25 % 4;
+            //Console.WriteLine(sonuc);
+            //int s1, s2, s3;
+            //int ortalama;
+            //string durum;
+            //Console.Write("sinav 1: ");
+            //s1=Convert.ToInt32(Console.ReadLine());
+            //Console.Write("sinav2:  ");
+            //s2=Convert.ToInt32(Console.ReadLine());
+            //Console.Write("sinav3:  ");
+            //s3=Convert.ToInt32(Console.ReadLine());
+            //ortalama=(s1+s2+s3)/3;
+            //if (ortalama <= 49)
+            //{
+            //    durum = "vasat";
+            //    Console.Write(durum);
+            //} else if (ortalama > 49 && ortalama <= 70)
+            //{
+            //    durum = "Orta";
+            //    Console.Write(durum);
+            //} else if (ortalama > 70)
+            //{
+            //    durum = "Başarılı";
+            //    Console.Write(durum);
+            //}
+            //Console.Write("Sayi Giriniz: ");
+            //int sayi=Convert.ToInt32(Console.ReadLine());
+            //if (sayi % 2 == 0) {
+
+            //    Console.WriteLine("Çift");
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tek");
+            //}
+            //string fruit;
+            //Console.Write("Enter the Your Fruit: ");
+            //fruit = Console.ReadLine();
+
+            //switch (fruit)
+            //{
+            //    case "apple":Console.WriteLine("elma"); break;
+            //    case "orange": Console.WriteLine("portakal");break;
+            //    case "strawberry":Console.WriteLine("Çilek");break;
+            //    case "melon":Console.WriteLine("kavun");break;
+            //    default: Console.WriteLine("hatalı veri");break;
+
+
+
+            //}
+            int s1, s2, s3;
+            double ort;
+            Console.Write("1.Sınavı Giriniz:");
+            s1=Convert.ToInt32(Console.ReadLine());
+            Console.Write("2.Sınavı Giriniz:");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("3.Sınavı Giriniz:");
+            s3 = Convert.ToInt32(Console.ReadLine());
+            ort = (s1 + s2 + s3) / 3;
+            switch (ort)
+            {
+                case 50:Console.WriteLine("vasat"); break;
+                case 75:Console.WriteLine("orta");break;
+                case 100:Console.WriteLine("Başarılı");break;
+                default: Console.WriteLine("Hatalı Giriş");break;
+            }
+            
             Console.ReadLine();
         }
     }
