@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-namespace Sql
+
+namespace sqlişlemleri
 {
     internal class Program
     {
@@ -14,7 +14,7 @@ namespace Sql
             SqlConnection conn = new SqlConnection("Data Source=DENIZ\\SQLEXPRESS;Initial Catalog=DbVisit;Integrated Security=True;Encrypt=False");
             void Listele()
             {
-
+              
                 SqlCommand komut = new SqlCommand("Select *From TBLPerson", conn);
                 SqlDataReader oku = komut.ExecuteReader();
                 while (oku.Read())
@@ -35,19 +35,16 @@ namespace Sql
             //SqlCommand komut3 = new SqlCommand("Delete From TBLPerson where Id=@p1", conn);
             //komut3.Parameters.AddWithValue("@p1",7);
             //komut3.ExecuteNonQuery();
-            //Guncelleme
             //SqlCommand komut4 = new SqlCommand("Update TBLPerson set Name=@p1,City=@p2 where Id=@p3", conn);
             //komut4.Parameters.AddWithValue("@p1", "ozan");
             //komut4.Parameters.AddWithValue("@p2", "Hatay");
             //komut4.Parameters.AddWithValue("@p3", 3);
             //komut4.ExecuteNonQuery();
-
-
-
+                 
+            Listele();
+            
+            conn.Close();
             Console.ReadLine();
-
-            }
-           
         }
     }
-
+}
