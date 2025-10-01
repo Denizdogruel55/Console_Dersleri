@@ -41,7 +41,8 @@ namespace Sql
             //komut4.Parameters.AddWithValue("@p2", "Hatay");
             //komut4.Parameters.AddWithValue("@p3", 3);
             //komut4.ExecuteNonQuery();
-
+            Listele();
+            conn.Close();
 
 
             Console.ReadLine();
