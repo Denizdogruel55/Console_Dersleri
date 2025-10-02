@@ -291,14 +291,27 @@ namespace Console_Dersleri
 
             //}
 
-           DbVisitEntities db=new DbVisitEntities();
-            var values = db.TBLPerson.ToList();
-            foreach (var value in values) { 
-            
-           Console.WriteLine(value.Id+"  "+value.Name+ " "+value.City); 
-            
+            DbVisitEntities db = new DbVisitEntities();
+            void listele()
+            {
+                var values = db.TBLPerson.ToList();
+                foreach (var value in values)
+                {
+
+                    Console.WriteLine(value.Id + "  " + value.Name + " " + value.City);
+
+                }
             }
-           
+
+            TBLPerson t = new TBLPerson();
+            //t.Name = "Ali kaya";
+            //t.City = "izmir";
+            //db.TBLPerson.Add(t);
+            var valuesdeleted = db.TBLPerson.Find(10);
+            db.TBLPerson.Remove(valuesdeleted);
+
+            db.SaveChanges();
+            listele();
             Console.ReadLine();
         }
     }
