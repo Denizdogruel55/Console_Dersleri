@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Console_Dersleri.Model;
 namespace Console_Dersleri
 {
     internal class Program
@@ -291,8 +291,14 @@ namespace Console_Dersleri
 
             //}
 
+           DbVisitEntities db=new DbVisitEntities();
+            var values = db.TBLPerson.ToList();
+            foreach (var value in values) { 
+            
+           Console.WriteLine(value.Id+"  "+value.Name+ " "+value.City); 
+            
+            }
            
-
             Console.ReadLine();
         }
     }

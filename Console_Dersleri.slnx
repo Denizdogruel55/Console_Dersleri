@@ -1,6 +1,3 @@
 <Solution>
   <Project Path="Console_Dersleri/Console_Dersleri.csproj" Id="acfb0ffe-3722-4b00-9fc2-cf222d6d3bab" />
-  <Project Path="Metotlar/Metotlar.csproj" Id="7be40d72-3aa5-448c-b6fe-fc20cc8c2b4f" />
-  <Project Path="Sql/Sql.csproj" Id="17af2d5f-ae4f-40d3-b641-ffb7b0b06fda" />
-  <Project Path="Sınıflar/Sınıflar.csproj" Id="4d11ddfd-58b1-4bd4-a6e1-3b693f5217a9" />
 </Solution>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbVisitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCapital" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLFlight">
+          <Key>
+            <PropertyRef Name="FlagID" />
+          </Key>
+          <Property Name="FlagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartureLocation" Type="int" />
+          <Property Name="ArrivalLocation" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Capacity" Type="tinyint" />
+          <Property Name="FlightDate" Type="date" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TBLFlight_TblCountry2">
+          <End Role="TblCountry" Type="Self.TblCountry" Multiplicity="0..1" />
+          <End Role="TBLFlight" Type="Self.TBLFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLFlight">
+              <PropertyRef Name="DepartureLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLFlight_TblCountry3">
+          <End Role="TblCountry" Type="Self.TblCountry" Multiplicity="0..1" />
+          <End Role="TBLFlight" Type="Self.TBLFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLFlight">
+              <PropertyRef Name="ArrivalLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbVisitModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCountry" EntityType="Self.TblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLFlight" EntityType="Self.TBLFlight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPerson" EntityType="Self.TBLPerson" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLFlight_TblCountry2" Association="Self.FK_TBLFlight_TblCountry2">
+            <End Role="TblCountry" EntitySet="TblCountry" />
+            <End Role="TBLFlight" EntitySet="TBLFlight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLFlight_TblCountry3" Association="Self.FK_TBLFlight_TblCountry3">
+            <End Role="TblCountry" EntitySet="TblCountry" />
+            <End Role="TBLFlight" EntitySet="TBLFlight" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbVisitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCapital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLFlight" Relationship="Self.FK_TBLFlight_TblCountry2" FromRole="TblCountry" ToRole="TBLFlight" />
+          <NavigationProperty Name="TBLFlight1" Relationship="Self.FK_TBLFlight_TblCountry3" FromRole="TblCountry" ToRole="TBLFlight" />
+        </EntityType>
+        <EntityType Name="TBLFlight">
+          <Key>
+            <PropertyRef Name="FlagID" />
+          </Key>
+          <Property Name="FlagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartureLocation" Type="Int32" />
+          <Property Name="ArrivalLocation" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Capacity" Type="Byte" />
+          <Property Name="FlightDate" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TblCountry" Relationship="Self.FK_TBLFlight_TblCountry2" FromRole="TBLFlight" ToRole="TblCountry" />
+          <NavigationProperty Name="TblCountry1" Relationship="Self.FK_TBLFlight_TblCountry3" FromRole="TBLFlight" ToRole="TblCountry" />
+        </EntityType>
+        <EntityType Name="TBLPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TBLFlight_TblCountry2">
+          <End Role="TblCountry" Type="Self.TblCountry" Multiplicity="0..1" />
+          <End Role="TBLFlight" Type="Self.TBLFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLFlight">
+              <PropertyRef Name="DepartureLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLFlight_TblCountry3">
+          <End Role="TblCountry" Type="Self.TblCountry" Multiplicity="0..1" />
+          <End Role="TBLFlight" Type="Self.TBLFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLFlight">
+              <PropertyRef Name="ArrivalLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbVisitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TblCountry" EntityType="Self.TblCountry" />
+          <EntitySet Name="TBLFlight" EntityType="Self.TBLFlight" />
+          <EntitySet Name="TBLPerson" EntityType="Self.TBLPerson" />
+          <AssociationSet Name="FK_TBLFlight_TblCountry2" Association="Self.FK_TBLFlight_TblCountry2">
+            <End Role="TblCountry" EntitySet="TblCountry" />
+            <End Role="TBLFlight" EntitySet="TBLFlight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLFlight_TblCountry3" Association="Self.FK_TBLFlight_TblCountry3">
+            <End Role="TblCountry" EntitySet="TblCountry" />
+            <End Role="TBLFlight" EntitySet="TBLFlight" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbVisitModelStoreContainer" CdmEntityContainer="DbVisitEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbVisitModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCountry">
+            <EntityTypeMapping TypeName="DbVisitModel.TblCountry">
+              <MappingFragment StoreEntitySet="TblCountry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryCapital" ColumnName="CountryCapital" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLFlight">
+            <EntityTypeMapping TypeName="DbVisitModel.TBLFlight">
+              <MappingFragment StoreEntitySet="TBLFlight">
+                <ScalarProperty Name="FlagID" ColumnName="FlagID" />
+                <ScalarProperty Name="DepartureLocation" ColumnName="DepartureLocation" />
+                <ScalarProperty Name="ArrivalLocation" ColumnName="ArrivalLocation" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="FlightDate" ColumnName="FlightDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPerson">
+            <EntityTypeMapping TypeName="DbVisitModel.TBLPerson">
+              <MappingFragment StoreEntitySet="TBLPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
